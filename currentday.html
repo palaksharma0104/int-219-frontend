@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        const currentDate = new Date();
+        const currentDayNumber = currentDate.getDay();
+        let currentDay;
+        switch (currentDayNumber) {
+            case 0:
+                currentDay = "Sunday";
+                break;
+            case 1:
+                currentDay = "Monday";
+                break;
+            case 2:
+                currentDay = "Tuesday";
+                break;
+            case 3:
+                currentDay = "Wednesday";
+                break;
+            case 4:
+                currentDay = "Thursday";
+                break;
+            case 5:
+                currentDay = "Friday";
+
+
+                break;
+                
+                
+
+            case 6:0
+                currentDay = "Saturday";
+                break;
+            default:
+                currentDay = "Unknown";
+        }
+        document.write(`<p>Today is ${currentDay}.</p>`);
+        console.log(`Today is ${currentDay}.`);
+    </script>
+</body>
+</html>
