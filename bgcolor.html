@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color</title>
+<style>
+    body {
+        transition: background-color 0.5s ease;
+    }
+    .container {
+        text-align: center;
+        margin-top: 100px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <button onclick="changeColor()">Change Background Color</button>
+</div>
+
+<script>
+    function changeColor() {
+        var colors = ['#FF5733', '#33FF8D', '#3373FF', '#FF33C4', '#D133FF', '#33FFEC']; // List of colors
+        var randomColor = colors[Math.floor(Math.random() * colors.length)]; // Pick a random color from the list
+        document.body.style.backgroundColor = randomColor; // Change the background color
+    }
+</script>
+
+</body>
+</html>
