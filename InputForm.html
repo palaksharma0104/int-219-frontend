@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Form</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="myForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <span id="usernameError" class="error"></span><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span id="passwordError" class="error"></span><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("myForm");
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const usernameError = document.getElementById("usernameError");
+        const passwordError = document.getElementById("passwordError");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            let isValid = true;
+
+            // Clear previous error messages
+            usernameError.textContent = "";
+            passwordError.textContent = "";
+
+            // Username validation
+            if (usernameInput.value.length < 3) {
+                usernameError.textContent = "Username must be at least 3 characters long.";
+                isValid = false;
+            }
+
+            // Password validation
+            if (passwordInput.value.length < 3) {
+                passwordError.textContent = "Password must be at least 3 characters long.";
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Form submission logic (e.g., send data to server)
+                alert("Form submitted successfully!");
+            }
+        });
+    </script>
+</body>
+</html>
