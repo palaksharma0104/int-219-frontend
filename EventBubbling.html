@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling Example</title>
+</head>
+<body>
+    <div id="outer-container">
+        <span id="inner-element">Click Me!</span>
+    </div>
+    <script>
+        // Define function for outer container
+        function outerContainerClick(event) {
+            alert("Outer container clicked!");
+        }
+
+        // Define function for inner element
+        function innerElementClick(event) {
+            alert("Inner element clicked!");
+            // Optionally stop bubbling here by calling event.stopPropagation()
+            // event.stopPropagation();
+        }
+
+        // Attach event listeners
+        document.getElementById("outer-container").addEventListener("click", outerContainerClick);
+        document.getElementById("inner-element").addEventListener("click", innerElementClick);
+    </script>
+</body>
+</html>
