@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        #myButton {
+            background-color: #3498db;
+            color: white;
+        }
+        #removeListener {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+    <button id="removeListener">Remove Listener</button>
+
+    <script>
+        let clickCount = 0;
+
+        const myButton = document.getElementById("myButton");
+        const removeListenerButton = document.getElementById("removeListener");
+
+        myButton.addEventListener("click", function() {
+            clickCount++;
+            alert("Button clicked " + clickCount + " times!");
+        });
+
+        removeListenerButton.addEventListener("click", function() {
+            myButton.removeEventListener("click", arguments.callee.caller);
+            alert("Click listener removed!");
+        });
+    </script>
+</body>
+</html>
