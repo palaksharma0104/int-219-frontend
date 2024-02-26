@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .slider {
+            overflow: hidden;
+            position: relative;
+            width: 600px;
+            height: 300px;
+        }
+
+        .slider-images {
+            display: flex;
+            position: absolute;
+            width: 300%; /* 3 * 100% for three images */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-image {
+            width: 33.33%; /* Each image takes up 33.33% of the slider width */
+        }
+
+        .slider-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure images fill the container */
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .slider-dot {
+            cursor: pointer;
+            margin: 0 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+
+        .slider-dot.active {
+            background-color: #000;
+        }
+
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2; /* Ensure buttons are above images */
+        }
+
+        .slider-arrow {
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .slider-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slider-arrow.left {
+            left: 10px;
+        }
+
+        .slider-arrow.right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slider-images">
+            <div class="slider-image"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgICAgIBwgHBwcHBwoHBwcHBw8ICQcKFREWFhUREx8YHSggGCYlGxMTITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDjcZFRkrKy03LSs3KysrNys3LSstLS0rKys3KysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALcBEwMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAgADBP/EABgQAQEBAQEAAAAAAAAAAAAAAAABEQIS/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/APDxy7cxPMdZHJ6SZFQRUAxUEVBmmGCKgzTFQRUGa2KgioMtIcYjLMxUDFgSFCgmxNWmjUCaoChmYVmZkAxYVNFihQc+o498vRY59QHmvLOvllRHMdIJFRHdoqCKglMMEVBkxUEVBimLkTFxWa2FmGTGZoIWYiBjjAAoYCamrsGDUQLF4MF1DKxsF1LKxsDUhQFAUEEVNjpYmxVccZeERxigYjsTGhEphgioMmLiYqDFMVBFRWaYYIoZbCxEBYwQEsIlsLCpGKAanE4uga1ODFjBdSxYEiqoosSFJo0yaoUEYysYVwII6mGCESqiomLgxTIqCKgxTFQQwZpikxQzS0YiMYDBGZiIGIABTCpxKxgqQvBguoxlYBdTQpNFSFUDSRVDBUscYV5zAYOpikxQzVQxMVBmqiomKgzVRUTFyDFMLSGQZaFpCMsWIgxiREsWFSxAoYsABYVIqgKlNWmixINA0BTRRQzMK88LMOphBghioIqQZpioIuDFMXExcGKYrGiorFokOEjOpw4WEDFgSxYUAsigEAwIFAUKKmhQFTiaupqtRNFVYmiwMzDTzmCKg6NCxiIYqCKgzTFxMXBimKgioMVUVBDFYqozQwZZiADEAwIFZmYAFBBLECgGsKliBQMUFVFTV1NGoliw08sVExQ60xUTFwZpioIqDFMXExURmqVEqisVUVEwjCiIRCGYRgzCsxYAzMAoIFAIRWBYUBQqiWIoqamrqKrUSzMNvNDAYjqqKiYqDNVFxPKoOdMVBFQZpVExcGaqERhhTBgLBhCQwMzMDAgGoZkUA0Cs0ZhWFIUApqaKKiqqarcDMw08xgiojrTFRMVBirioiLgxVRUTFQZqoqIVBmqhDDJYMIWDClmYRmYIFgwpDAGZmFZmZQM1ACikDSamqTVagYEaeXmrjlxXWI61UVExUGKqKiYqDFVFJh0ZqlRMYZWUwiFmYZZmYGZmFYMwFgyBDAUsGUIZgYVmtFFTSKqioqqjpG4nWRaw083Fd+azDouKjMMKiozKxTCzDKizIhhhYZZmYQsGBm1mFZmYBraWAAsKG1mAFmABmVRaKzCotcu+mZHSON6ZmFf/2Q==" alt="Image 1" alt="Image 1"></div>
+            <div class="slider-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Color_icon_pink_v2.svg/1200px-Color_icon_pink_v2.svg.png" alt="Image 2"></div>
+            <div class="slider-image"><img src="https://images.pexels.com/photos/2737656/pexels-photo-2737656.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Image 3"></div>
+        </div>
+        <div class="slider-dots">
+            <span class="slider-dot active" data-slide="1"></span>
+            <span class="slider-dot" data-slide="2"></span>
+            <span class="slider-dot" data-slide="3"></span>
+        </div>
+        <div class="slider-arrows">
+            <button class="slider-arrow left" data-direction="left">&larr;</button>
+            <button class="slider-arrow right" data-direction="right">&rarr;</button>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const sliderImages = document.querySelector('.slider-images');
+        const dots = document.querySelectorAll('.slider-dot');
+        const arrows = document.querySelectorAll('.slider-arrow');
+
+        let currentSlide = 0;
+
+        // Set initial image positions
+        sliderImages.style.transform = `translateX(-${currentSlide} * 33.33%)`;
+
+        function changeSlide(slide) {
+            currentSlide = slide;
+            sliderImages.style.transform = `translateX(-${currentSlide} * 33.33%)`;
+
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        // Add event listeners to dots
+        dots.
+
+</body>
+</html>
