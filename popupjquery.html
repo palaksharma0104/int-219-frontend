@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup Example</title>
+<style>
+/* Popup container styles */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    z-index: 9999;
+}
+
+/* Popup content styles */
+.popup-content {
+    text-align: center;
+}
+
+/* Close button styles */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- Popup container -->
+<div class="popup-container" id="popupContainer">
+    <div class="popup-content">
+        <span class="close-button" id="closeButton">&times;</span>
+        <p>MTTs are approaching</p>
+    </div>
+</div>
+
+<!-- Button to trigger the popup -->
+<button id="showPopupButton">Show Popup</button>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    // Function to show the popup
+    $("#showPopupButton").click(function() {
+        $("#popupContainer").fadeIn();
+    });
+
+    // Function to close the popup
+    $("#closeButton").click(function() {
+        $("#popupContainer").fadeOut();
+    });
+});
+</script>
+
+</body>
+</html>
