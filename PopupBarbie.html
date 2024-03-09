@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbie - Woman in STEM</title>
+    <style>
+        body {
+          font-family: sans-serif;
+        }
+
+        #popup {
+          background-color: pink;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: none; /* Initially hidden */
+          padding: 20px;
+          border-radius: 5px;
+          z-index: 1; /* Ensure popup is above other content */
+        }
+
+        #popup h2 {
+          text-align: center;
+        }
+
+        #close-popup {
+          background-color: #ffffff;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="open-popup">Wanna know something really cool?</button>
+    <div id="popup">
+        <h2>This Barbie is a Woman in STEM!</h2>
+        <button id="close-popup">Close</button>
+    </div>
+    <script>
+const openButton = document.getElementById("open-popup");
+const popup = document.getElementById("popup");
+const closeButton = document.getElementById("close-popup");
+
+openButton.addEventListener("click", () => {
+  popup.style.display = "block";
+});
+
+closeButton.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+</script>
+</body>
+</html>
