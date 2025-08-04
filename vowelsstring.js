@@ -8,3 +8,4 @@ function vowel_Count(str) {
 // Log the result of calling vowel_Count with the given strings to the console
 console.log(vowel_Count("Python"));
 console.log(vowel_Count("w3resource.com")); 
+
