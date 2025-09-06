@@ -13,3 +13,4 @@ function coinToss() {
 // Example usage
 const result = coinToss();
 console.log(result); // This will display either "heads" or "tails"
+
